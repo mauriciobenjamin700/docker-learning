@@ -4,7 +4,7 @@ Aprendendo a Usar Docker
 
 [Install Docker](https://github.com/codeedu/wsl2-docker-quickstart)
 
-##  Instalar o Docker com Docker Engine (Docker Nativo) pelo WSL (Ubuntu)
+## Instalar o Docker com Docker Engine (Docker Nativo) pelo WSL (Ubuntu)
 
 ```bash
 sudo apt-get update
