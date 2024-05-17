@@ -57,7 +57,7 @@ senha: postgres
 
   - General
     - name (docker)
-    - Connection
+  - Connection
     - hostname/address (my-postgres)
     - Port (5432)
     - Maintanance database (postgres)
