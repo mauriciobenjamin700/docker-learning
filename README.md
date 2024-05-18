@@ -1,10 +1,16 @@
-# docker-learning
+# Minha Jornada Aprendendo a Usar Docker
 
-Aprendendo a Usar Docker
+Saudações, Pessoal!
 
-[Install Docker](https://github.com/codeedu/wsl2-docker-quickstart)
+Este repositório se destina ao meu aprendizado sobre docker, desde a instalação até anotações sobre comandos, dúvidas, bugs e exemplos práticos.
+
+Para a instalação, eu aprendi seguindo os passos [deste guia](https://github.com/codeedu/wsl2-docker-quickstart). Mas logo abaixo eu trago o passo rápido para quem vai executar via WSL igual a mim.
 
 ## Instalar o Docker com Docker Engine (Docker Nativo) pelo WSL (Ubuntu)
+
+Para esta instalação, basta copiar cada bloco a baixo e executar no terminal do Ubuntu.
+
+Atualização do sistema e download do Docker
 
 ```bash
 sudo apt-get update
@@ -22,7 +28,7 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-Adicione o repositório do Docker na lista de sources do Ubuntu:
+Adicionando o repositório do Docker na lista de sources do Ubuntu:
 
 ```bash
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -31,7 +37,7 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 ```
 
-Dê permissão para rodar o Docker com seu usuário corrente:
+Dando permissão para rodar o Docker com seu usuário corrente:
 
 ```bash
 sudo usermod -aG docker $USER
@@ -39,3 +45,7 @@ sudo usermod -aG docker $USER
 
 Reinicie o WSL
 Pronto, seu Docker está instalado.
+
+## Primeiros Passos
+
+Se você assim como eu está dando seus primeiros passos com o Docker, [clique aqui](docs/help.md) para acessar um guia de comandos docker que montei enquanto estudava e ainda atualizo durante minha jornada.
