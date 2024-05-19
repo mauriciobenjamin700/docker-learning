@@ -158,6 +158,151 @@ Docker Compose é uma ferramenta que simplifica a definição e execução de ap
     - ``docker-compose ps``: Lista os containers em execução.
     -`` docker-compose logs``: Exibe os logs de todos os serviços.
 
+O comando `docker-compose up -d` é usado para iniciar todos os serviços definidos no arquivo `docker-compose.yml` em modo destacado (detached), o que significa que os contêineres serão executados em segundo plano. No entanto, existem vários comandos e opções adicionais que você pode usar com `docker-compose` para gerenciar seus serviços. Aqui estão alguns dos mais úteis:
+
+### Comandos Básicos do Docker Compose na prática
+
+1. **Iniciar Serviços**:
+   ```sh
+   docker-compose up -d
+   ```
+   - **-d**: Executa os contêineres em segundo plano (modo destacado).
+
+2. **Parar Serviços**:
+   ```sh
+   docker-compose stop
+   ```
+   - Para os contêineres sem removê-los.
+
+3. **Parar e Remover Serviços e Recursos**:
+   ```sh
+   docker-compose down
+   ```
+   - Para e remove contêineres, redes e volumes definidos no `docker-compose.yml`.
+
+### Opções do Comando `docker-compose up`
+
+1. **Forçar a Recriação dos Contêineres**:
+   ```sh
+   docker-compose up --force-recreate
+   ```
+   - Recria os contêineres mesmo se não houver mudanças no `docker-compose.yml`.
+
+2. **Recriar Apenas Contêineres com Mudanças**:
+   ```sh
+   docker-compose up --build
+   ```
+   - Recompila as imagens e recria os contêineres se houver mudanças nos arquivos de configuração.
+
+3. **Remover Contêineres Órfãos**:
+   ```sh
+   docker-compose up --remove-orphans
+   ```
+   - Remove contêineres que não estão mais definidos no `docker-compose.yml`.
+
+### Outros Comandos Úteis do Docker Compose
+
+1. **Listar Serviços em Execução**:
+   ```sh
+   docker-compose ps
+   ```
+   - Lista todos os contêineres em execução gerenciados pelo `docker-compose`.
+
+2. **Verificar Logs dos Serviços**:
+   ```sh
+   docker-compose logs
+   ```
+   - Mostra os logs dos contêineres.
+   - Para seguir os logs em tempo real:
+     ```sh
+     docker-compose logs -f
+     ```
+
+3. **Executar Comandos em Contêineres em Execução**:
+   ```sh
+   docker-compose exec <service_name> <command>
+   ```
+   - Executa um comando em um contêiner em execução. Por exemplo, para abrir um shell no contêiner do PostgreSQL:
+     ```sh
+     docker-compose exec postgres bash
+     ```
+
+4. **Verificar o Estado dos Contêineres e Dependências**:
+   ```sh
+   docker-compose top
+   ```
+   - Exibe a árvore de processos dos contêineres.
+
+5. **Reiniciar Serviços**:
+   ```sh
+   docker-compose restart
+   ```
+   - Reinicia todos os serviços ou um serviço específico:
+     ```sh
+     docker-compose restart <service_name>
+     ```
+
+6. **Remover Contêineres Parados e Volumes Não Utilizados**:
+   ```sh
+   docker-compose down --volumes
+   ```
+   - Remove todos os volumes definidos e associados aos serviços.
+
+### Comandos de Manutenção
+
+1. **Atualizar Imagens e Recriar Contêineres**:
+   ```sh
+   docker-compose pull
+   ```
+   - Puxa as versões mais recentes das imagens definidas no `docker-compose.yml`.
+
+2. **Verificar Configuração**:
+   ```sh
+   docker-compose config
+   ```
+   - Verifica e valida o arquivo de configuração `docker-compose.yml`.
+
+3. **Remover Contêineres Parados e Imagens Não Utilizadas**:
+   ```sh
+   docker-compose down --rmi all
+   ```
+   - Remove contêineres, redes, volumes e também todas as imagens usadas pelos serviços.
+
+### Exemplo Completo de Uso
+
+Para ilustrar um fluxo de trabalho completo, considere os seguintes passos:
+
+1. **Inicializar Serviços em Segundo Plano**:
+   ```sh
+   docker-compose up -d
+   ```
+
+2. **Verificar Serviços em Execução**:
+   ```sh
+   docker-compose ps
+   ```
+
+3. **Seguir Logs em Tempo Real**:
+   ```sh
+   docker-compose logs -f
+   ```
+
+4. **Executar um Comando no Serviço PostgreSQL**:
+   ```sh
+   docker-compose exec postgres psql -U postgres
+   ```
+
+5. **Reiniciar um Serviço Específico**:
+   ```sh
+   docker-compose restart pgadmin
+   ```
+
+6. **Parar e Remover Todos os Serviços e Recursos**:
+   ```sh
+   docker-compose down --volumes --remove-orphans
+   ```
+
+
 ### Exemplo de um Arquivo ``docker-compose.yml```
 
 Um exemplo básico de um arquivo docker-compose.yml que define uma aplicação web com um serviço de banco de dados:
@@ -202,4 +347,3 @@ volumes:
 - Reprodutibilidade: Garante que o ambiente de desenvolvimento seja consistente com o de produção.
 - Isolamento: Cada serviço é executado em um container separado, permitindo isolamento de dependências e evitando conflitos.
 - Facilidade de Uso: Um único arquivo YAML simplifica a gestão de configurações complexas.
-

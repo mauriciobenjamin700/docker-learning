@@ -83,26 +83,3 @@ docker start nome_do_contêiner
 docker start id_do_contêiner
 ```
 
-## Configurando usando docker-compose
-
-abra a pasta que irá criar seu docker compose
-
-crie o seguinte arquivo ``docker-compose.yaml`
-
-o docker compose terá a seguinte estrutura:
-
-```yaml
-
-version: "3.8"
-
-service:
-
-    postgres-compose:
-        image: postgres
-        environment:
-            POSTGRES_PASSWORD: "1234"
-        ports:
-            "5432:5432"
-```
-
-Agora execute o comando `docker-compose up -d` no local do arquivo

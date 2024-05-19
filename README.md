@@ -43,6 +43,11 @@ Dando permissão para rodar o Docker com seu usuário corrente:
 sudo usermod -aG docker $USER
 ```
 
+Instalando Docker-Compose
+
+```bash
+sudo apt  install docker-compose
+```
 Reinicie o WSL
 Pronto, seu Docker está instalado.
 

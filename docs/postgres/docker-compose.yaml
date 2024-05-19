@@ -1,11 +1,26 @@
-version: '3'
-
+version: '3.8'
 services:
-  database:
+  postgres:
     image: postgres
-    container_name: database
-    ports:
-      - "2222:5432"
+    container_name: my-postgres
     environment:
       POSTGRES_PASSWORD: postgres
-    restart: always
+    ports:
+      - "3000:5432"
+    networks:
+      - my-network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: my-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: test@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    ports:
+      - "3001:80"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
