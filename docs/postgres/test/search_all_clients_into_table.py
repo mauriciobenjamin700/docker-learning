@@ -1,5 +1,3 @@
-from sqlalchemy.exc import IntegrityError
-
 from os.path import abspath, dirname
 import sys
 
@@ -8,8 +6,7 @@ sys.path.insert(0, dirname(abspath(__file__)))
 from bd import SessionLocal
 from entities import Client
 
-def display_clients() -> None:
-    # Criando a sessão
+def show_all_clients() -> None:
     session = SessionLocal()
     
     try:
@@ -21,4 +18,4 @@ def display_clients() -> None:
         session.close()
         
 if __name__ == "__main__":
-    display_clients()
+    show_all_clients()
