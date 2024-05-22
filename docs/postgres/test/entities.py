@@ -33,7 +33,7 @@ class Item(Base):
     owner = relationship("User", back_populates="items")
 """
 
-def create_entities():
+def create_entities() -> None:
     try:
         Base.metadata.create_all(engine)
         print("Tabela 'Client' criada com sucesso.")

@@ -1,14 +1,11 @@
-from sqlalchemy import create_engine, text
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import text
 
-# URL de conexão com o banco de dados PostgreSQL
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:postgres@localhost:3000/postgres"
+from os.path import abspath, dirname
+import sys
 
-# Criando o motor de conexão
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+sys.path.insert(0, dirname(abspath(__file__)))
 
-# Criando uma fábrica de sessões
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+from bd import SessionLocal
 
 # Função para verificar se um banco de dados específico existe
 def check_database_exists(db_name):
@@ -28,5 +25,6 @@ def check_database_exists(db_name):
         # Fechando a sessão
         session.close()
 
-# Verificando se um banco de dados específico existe
-check_database_exists("nome_do_banco_desejado")
+if __name__ == "__main__":
+    # Verificando se um banco de dados específico existe
+    check_database_exists("postgres")
