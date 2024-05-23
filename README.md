@@ -51,6 +51,13 @@ sudo apt  install docker-compose
 Reinicie o WSL
 Pronto, seu Docker está instalado.
 
+Caso aconteça algum erro, execute:
+
+```bash
+ sudo apt-get update
+ sudo apt-get install docker-compose-plugin
+```
+
 ## Primeiros Passos
 
 Se você assim como eu está dando seus primeiros passos com o Docker, [clique aqui](docs/help.md) para acessar um guia de comandos docker que montei enquanto estudava e ainda atualizo durante minha jornada.
