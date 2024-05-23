@@ -9,3 +9,4 @@ Passo a passo de como usar:
 - Inicie o conteiner com o banco de dados usando `docker-compose up -d`
 - Execute o arquivo usando `python3 main.py` ou `python main.py`
 - Recomendo análisar os arquivos dentro da pasta [test](test/)
+- Quando não for mais usar o siste, encerre os conteiners usando `docker-compose down --volumes --remove-orphans`
