@@ -75,6 +75,8 @@ Recomendo que consulte a documentação para saber mais dessas flegs
 
 ### Comandos e Suas Flags Essenciais para quem está Aprendendo
 
+- Podemos acessar o terminal de um container usando `docker exec -it ID_DO_CONTAINER /bin/bash`, onde ao passar o id do container, podemos operalo como uma maquina virtual (Dica: ao usar `docker ps` podemos obter o ID do container)
+
 #### Removendo todos os Conteiners 
 
 Para remover todos os conteiners, existem diversas formas e passos, como:
